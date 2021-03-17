@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class NotesListViewController: UITableViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()

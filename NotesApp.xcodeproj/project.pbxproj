@@ -7,17 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE526F5D26022590008E47F1 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE526F5C26022590008E47F1 /* MainNavigationController.swift */; };
+		FE526F60260225AA008E47F1 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE526F5F260225AA008E47F1 /* NoteCell.swift */; };
+		FE526F63260225BB008E47F1 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE526F62260225BB008E47F1 /* NoteModel.swift */; };
+		FE526F6626022645008E47F1 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE526F6526022645008E47F1 /* NoteViewController.swift */; };
+		FE526F6A2602266A008E47F1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE526F692602266A008E47F1 /* SettingsViewController.swift */; };
 		FE831EF12602171600CAAC2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE831EF02602171600CAAC2A /* AppDelegate.swift */; };
-		FE831EF52602171600CAAC2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE831EF42602171600CAAC2A /* ViewController.swift */; };
+		FE831EF52602171600CAAC2A /* NotesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE831EF42602171600CAAC2A /* NotesListViewController.swift */; };
 		FE831EFB2602171600CAAC2A /* NotesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE831EF92602171600CAAC2A /* NotesApp.xcdatamodeld */; };
 		FE831EFD2602171700CAAC2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE831EFC2602171700CAAC2A /* Assets.xcassets */; };
 		FE831F002602171700CAAC2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE831EFE2602171700CAAC2A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE526F5C26022590008E47F1 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		FE526F5F260225AA008E47F1 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		FE526F62260225BB008E47F1 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		FE526F6526022645008E47F1 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		FE526F692602266A008E47F1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FE831EED2602171600CAAC2A /* NotesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE831EF02602171600CAAC2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FE831EF42602171600CAAC2A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FE831EF42602171600CAAC2A /* NotesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListViewController.swift; sourceTree = "<group>"; };
 		FE831EFA2602171600CAAC2A /* NotesApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotesApp.xcdatamodel; sourceTree = "<group>"; };
 		FE831EFC2602171700CAAC2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE831EFF2602171700CAAC2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +65,12 @@
 			isa = PBXGroup;
 			children = (
 				FE831EF02602171600CAAC2A /* AppDelegate.swift */,
-				FE831EF42602171600CAAC2A /* ViewController.swift */,
+				FE526F5C26022590008E47F1 /* MainNavigationController.swift */,
+				FE831EF42602171600CAAC2A /* NotesListViewController.swift */,
+				FE526F5F260225AA008E47F1 /* NoteCell.swift */,
+				FE526F6526022645008E47F1 /* NoteViewController.swift */,
+				FE526F692602266A008E47F1 /* SettingsViewController.swift */,
+				FE526F62260225BB008E47F1 /* NoteModel.swift */,
 				FE831EFC2602171700CAAC2A /* Assets.xcassets */,
 				FE831EFE2602171700CAAC2A /* LaunchScreen.storyboard */,
 				FE831F012602171700CAAC2A /* Info.plist */,
@@ -133,9 +148,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE831EF52602171600CAAC2A /* ViewController.swift in Sources */,
+				FE526F6626022645008E47F1 /* NoteViewController.swift in Sources */,
+				FE831EF52602171600CAAC2A /* NotesListViewController.swift in Sources */,
+				FE526F63260225BB008E47F1 /* NoteModel.swift in Sources */,
 				FE831EF12602171600CAAC2A /* AppDelegate.swift in Sources */,
+				FE526F60260225AA008E47F1 /* NoteCell.swift in Sources */,
+				FE526F5D26022590008E47F1 /* MainNavigationController.swift in Sources */,
 				FE831EFB2602171600CAAC2A /* NotesApp.xcdatamodeld in Sources */,
+				FE526F6A2602266A008E47F1 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
