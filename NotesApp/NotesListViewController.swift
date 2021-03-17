@@ -23,8 +23,21 @@ class NotesListViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		title = "My Notes"
+		
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New",
+														   style: .plain,
+														   target: self,
+														   action: #selector(addNewNote))
+		
 		tableView.register(NoteCell.self, forCellReuseIdentifier: reuseIdentifier)
 		tableView.tableFooterView = UIView()
+	}
+	
+	@objc
+	func addNewNote() {
+		let targetVC = NoteViewController()
+		targetVC.configure()
+		navigationController?.pushViewController(targetVC, animated: true)
 	}
 
 	
@@ -48,7 +61,7 @@ class NotesListViewController: UITableViewController {
 		let targetVC = NoteViewController()
 		
 		let note = notes[indexPath.row]
-		targetVC.title = note.title
+		targetVC.configure(with: note)
 		
 		navigationController?.pushViewController(targetVC, animated: true)
 	}
