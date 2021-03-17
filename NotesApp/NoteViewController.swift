@@ -11,17 +11,17 @@ class NoteViewController: UIViewController {
 	
 	private var note: Note? {
 		willSet {
-			guard let value = newValue else { return }
-			title = value.title
+			guard let newValue = newValue else { return }
+			title = newValue.title
 			
 			let dateFormatter = DateFormatter()
 			dateFormatter.locale = Locale(identifier: "ru_Ru")
 			dateFormatter.dateFormat = "dd MMMM yyyy' в 'HH:mm"
-			dateLabel.text = dateFormatter.string(from: value.date)
+			dateLabel.text = dateFormatter.string(from: newValue.date)
 		}
 	}
 	
-	let dateLabel: UILabel = {
+	private let dateLabel: UILabel = {
 		let label = UILabel()
 		label.font = UIFont.systemFont(ofSize: 12)
 		label.textColor = .gray
@@ -29,7 +29,7 @@ class NoteViewController: UIViewController {
 		return label
 	}()
 	
-	let textView: UITextView = {
+	private let textView: UITextView = {
 		let textView = UITextView()
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		textView.allowsEditingTextAttributes = true
@@ -59,12 +59,8 @@ class NoteViewController: UIViewController {
 		])
 	}
 	
-	func configure(with note: Note? = nil) {
-		if let editingNote = note {
-			self.note = editingNote
-		} else {
-			self.note = Note(title: "New Note", date: Date())
-		}
+	func configure(with note: Note) {
+		self.note = note
 	}
 	
 	private func addKeyboardObservers() {

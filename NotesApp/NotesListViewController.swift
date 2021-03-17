@@ -17,7 +17,7 @@ class NotesListViewController: UITableViewController {
 		Note(title: "2", date: Date().addingTimeInterval(-24 * 60 * 60)),
 		Note(title: "3", date: Date().addingTimeInterval(-25 * 60 * 60)),
 		Note(title: "4", date: Date().addingTimeInterval(-48 * 60 * 60)),
-		Note(title: "5 note with super long title, that don't fit in one line of cell and i think it'll take even more then two lines", date: Date().addingTimeInterval(-72 * 60 * 60))
+		Note(title: "5 note with super long title, that don't fit\nin one line of cell and i think it'll take even more then two lines", date: Date().addingTimeInterval(-72 * 60 * 60))
 	]
 
 	override func viewDidLoad() {
@@ -34,9 +34,14 @@ class NotesListViewController: UITableViewController {
 	}
 	
 	@objc
-	func addNewNote() {
+	private func addNewNote() {
 		let targetVC = NoteViewController()
-		targetVC.configure()
+		
+		let newNote = Note(title: "New Note", date: Date())
+		
+		notes.append(newNote)
+		tableView.insertRows(at: [IndexPath(item: 0, section: 0)], with: .automatic)
+		targetVC.configure(with: newNote)
 		navigationController?.pushViewController(targetVC, animated: true)
 	}
 
@@ -49,7 +54,8 @@ class NotesListViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? NoteCell else { return UITableViewCell() }
 		
-		let note = notes[indexPath.row]
+		let index = notes.count - 1 - indexPath.row
+		let note = notes[index]
 		cell.configure(with: note)
 		
 		return cell
@@ -60,7 +66,8 @@ class NotesListViewController: UITableViewController {
 		
 		let targetVC = NoteViewController()
 		
-		let note = notes[indexPath.row]
+		let index = notes.count - 1 - indexPath.row
+		let note = notes[index]
 		targetVC.configure(with: note)
 		
 		navigationController?.pushViewController(targetVC, animated: true)
