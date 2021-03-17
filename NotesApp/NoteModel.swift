@@ -11,6 +11,6 @@ struct Note {
 	
 	var title: String?
 //	var text: String
-//	var date: Date
+	var date: Date
 	
 }

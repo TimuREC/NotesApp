@@ -51,6 +51,22 @@ class NoteCell: UITableViewCell {
     
 	func configure(with note: Note) { // NoteCellConfiguration
 		titleLabel.text = note.title
+		
+		let dateFormatter = DateFormatter()
+		let calendar = Calendar.current
+		let dateComponents = calendar.dateComponents([.year, .month, .day], from: note.date)
+		let nowComponents = calendar.dateComponents([.year, .month, .day], from: Date())
+		
+		if let dateYear = dateComponents.year, let dateMonth = dateComponents.month, let dateDay = dateComponents.day,
+		   let nowYear = nowComponents.year, let nowMonth = nowComponents.month, let nowDay = nowComponents.day {
+			if dateYear < nowYear || dateMonth < nowMonth || dateDay < nowDay {
+				dateFormatter.dateFormat = "dd.MM.yy"
+			} else {
+				dateFormatter.dateFormat = "HH:mm"
+			}
+		}
+		
+		dateLabel.text = dateFormatter.string(from: note.date)
 	}
 
 }

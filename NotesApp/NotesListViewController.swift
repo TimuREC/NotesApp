@@ -12,12 +12,12 @@ class NotesListViewController: UITableViewController {
 	private let reuseIdentifier = "NoteCell"
 	
 	private var notes = [
-		Note(title: "0"),
-		Note(title: "1"),
-		Note(title: "2"),
-		Note(title: "3"),
-		Note(title: "4"),
-		Note(title: "5 note with super long title, that don't fit in one line of cell and i think it'll take even more then two lines")
+		Note(title: "0", date: Date()),
+		Note(title: "1", date: Date().addingTimeInterval(-180)),
+		Note(title: "2", date: Date().addingTimeInterval(-24 * 60 * 60)),
+		Note(title: "3", date: Date().addingTimeInterval(-25 * 60 * 60)),
+		Note(title: "4", date: Date().addingTimeInterval(-48 * 60 * 60)),
+		Note(title: "5 note with super long title, that don't fit in one line of cell and i think it'll take even more then two lines", date: Date().addingTimeInterval(-72 * 60 * 60))
 	]
 
 	override func viewDidLoad() {
@@ -38,7 +38,6 @@ class NotesListViewController: UITableViewController {
 		
 		let note = notes[indexPath.row]
 		cell.configure(with: note)
-		cell.dateLabel.text = "23/03/2021"
 		
 		return cell
 	}
