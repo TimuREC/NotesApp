@@ -44,6 +44,20 @@ class NotesListViewController: UITableViewController {
 		targetVC.configure(with: newNote)
 		navigationController?.pushViewController(targetVC, animated: true)
 	}
+	
+	private func removeAction(at indexPath: IndexPath) -> UIContextualAction {
+		let action = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, completion) in
+			guard let self = self else {
+				completion(false)
+				return
+			}
+			let index = self.notes.count - 1 - indexPath.row
+			self.notes.remove(at: index)
+			self.tableView.deleteRows(at: [indexPath], with: .automatic)
+			completion(true)
+		}
+		return action
+	}
 
 	
 	//MARK: - TableView data source methods
@@ -62,6 +76,11 @@ class NotesListViewController: UITableViewController {
 	}
 	
 	//MARK: - TableView delegate methods
+	override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		let remove = removeAction(at: indexPath)
+		return UISwipeActionsConfiguration(actions: [remove])
+	}
+	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
 		let targetVC = NoteViewController()
