@@ -6,32 +6,84 @@
 //
 
 import UIKit
+import CoreData
 
 class NotesDataManager: NSObject {
 	
-	var dummyNotes = [
-		Note(title: "0", date: Date()),
-		Note(title: "1", date: Date().addingTimeInterval(-180)),
-		Note(title: "2", date: Date().addingTimeInterval(-24 * 60 * 60)),
-		Note(title: "3", date: Date().addingTimeInterval(-25 * 60 * 60)),
-		Note(title: "4", date: Date().addingTimeInterval(-48 * 60 * 60)),
-		Note(title: "5 note with super long title, that don't fit\nin one line of cell and i think it'll take even more then two lines", date: Date().addingTimeInterval(-72 * 60 * 60))
-	]
+	let context: NSManagedObjectContext!
 	
-	var notesCount: Int { return dummyNotes.count }
+	var notes: [Note]
 	
-	func addNote(_ note: Note) {
-		dummyNotes.append(note)
+	var notesCount: Int { return notes.count }
+	
+	override init() {
+		notes = []
+		let appDelegate = UIApplication.shared.delegate as? AppDelegate
+		context = appDelegate?.persistentContainer.viewContext
+		super.init()
+		
+		let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
+		do {
+			if let context = context {
+				notes = try context.fetch(fetchRequest)
+			}
+		} catch {
+			print(error.localizedDescription)
+		}
+		sort()
+	}
+	
+	func saveData() {
+		if context.hasChanges {
+			DispatchQueue.global().async { [weak self] in
+				do {
+					try self?.context.save()
+				} catch {
+					print(error.localizedDescription)
+				}
+			}
+			sort()
+		}
+	}
+	
+	func addNote(_ newNote: Note) {
+		notes.append(newNote)
+		saveData()
 	}
 	
 	func getNote(for indexPath: IndexPath) -> Note {
-		let index = notesCount - 1 - indexPath.row
-		return dummyNotes[index]
+		let index = getIndex(by: indexPath)
+		return notes[index]
 	}
 	
 	func removeNote(at indexPath: IndexPath) {
-		let index = notesCount - 1 - indexPath.row
-		dummyNotes.remove(at: index)
+		let index = getIndex(by: indexPath)
+		guard let title = notes[index].title,
+			  let date = notes[index].date
+		else { return }
+		
+		let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
+		fetchRequest.predicate = NSPredicate(format: "title == %@ AND date == %@", title, date as CVarArg)
+		
+		if let objects = try? context?.fetch(fetchRequest) {
+			for object in objects {
+				context?.delete(object)
+			}
+		}
+		notes.remove(at: index)
+		saveData()
+	}
+	
+	private func getIndex(by indexPath: IndexPath) -> Int {
+		return notesCount - 1 - indexPath.row
+	}
+	
+	private func sort() {
+		notes.sort { (lhs, rhs) -> Bool in
+			guard let ldate = lhs.date,
+				  let rdate = rhs.date else { return false }
+			return ldate <= rdate
+		}
 	}
 	
 }
@@ -42,14 +94,14 @@ extension NotesDataManager: UITableViewDataSource {
 	var cellReuseIdentifier: String { return "NoteCell" }
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return dummyNotes.count
+		return notes.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? NoteCell else { return UITableViewCell() }
 		
-		let index = dummyNotes.count - 1 - indexPath.row
-		let note = dummyNotes[index]
+		let index = getIndex(by: indexPath)
+		let note = notes[index]
 		cell.configure(with: note)
 		
 		return cell

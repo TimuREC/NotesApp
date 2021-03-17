@@ -11,15 +11,18 @@ class NoteViewController: UIViewController {
 	
 	private weak var notesManager: NotesDataManager?
 	
+	private var isNew = false
+	
 	private var note: Note! {
 		willSet {
 			guard let newValue = newValue else { return }
 			title = newValue.title
+			textView.attributedText = newValue.text
 			
 			let dateFormatter = DateFormatter()
 			dateFormatter.locale = Locale(identifier: "ru_Ru")
 			dateFormatter.dateFormat = "dd MMMM yyyy' в 'HH:mm"
-			dateLabel.text = dateFormatter.string(from: newValue.date)
+			dateLabel.text = dateFormatter.string(from: newValue.date ?? Date())
 		}
 	}
 	
@@ -36,6 +39,7 @@ class NoteViewController: UIViewController {
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		textView.allowsEditingTextAttributes = true
 		textView.isScrollEnabled = true
+		textView.alwaysBounceVertical = true
 		textView.backgroundColor = .clear
 		return textView
 	}()
@@ -63,19 +67,27 @@ class NoteViewController: UIViewController {
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-		if let text = textView.text, !text.isEmpty {
-			note?.title = text
-			notesManager?.addNote(note)
+		if let text = textView.attributedText, !text.string.isEmpty && note.text != text {
+			note?.title = text.string.components(separatedBy: "\n").first
+			note?.text = text
+			note?.date = Date()
+			if isNew {
+				notesManager?.addNote(note)
+			} else {
+				notesManager?.saveData()
+			}
 		}
 	}
 	
 	func configure(with note: Note? = nil, notesManager: NotesDataManager) {
+		self.notesManager = notesManager
 		if let note = note {
 			self.note = note
 		} else {
-			self.note = Note(title: "New Note", date: Date())
+			self.note = Note(context: notesManager.context)
+			title = "New Note"
+			isNew = true
 		}
-		self.notesManager = notesManager
 	}
 	
 	private func addKeyboardObservers() {

@@ -26,7 +26,7 @@ class NotesListViewController: UITableViewController {
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(true)
+		super.viewWillAppear(animated)
 		tableView.reloadData()
 	}
 	
@@ -65,7 +65,7 @@ class NotesListViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return 65
+		return 45
 	}
 
 }
