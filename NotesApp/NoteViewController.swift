@@ -9,7 +9,9 @@ import UIKit
 
 class NoteViewController: UIViewController {
 	
-	private var note: Note? {
+	private weak var notesManager: NotesDataManager?
+	
+	private var note: Note! {
 		willSet {
 			guard let newValue = newValue else { return }
 			title = newValue.title
@@ -59,8 +61,21 @@ class NoteViewController: UIViewController {
 		])
 	}
 	
-	func configure(with note: Note) {
-		self.note = note
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		if let text = textView.text, !text.isEmpty {
+			note?.title = text
+			notesManager?.addNote(note)
+		}
+	}
+	
+	func configure(with note: Note? = nil, notesManager: NotesDataManager) {
+		if let note = note {
+			self.note = note
+		} else {
+			self.note = Note(title: "New Note", date: Date())
+		}
+		self.notesManager = notesManager
 	}
 	
 	private func addKeyboardObservers() {

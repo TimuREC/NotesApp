@@ -12,6 +12,7 @@
 		FE526F63260225BB008E47F1 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE526F62260225BB008E47F1 /* NoteModel.swift */; };
 		FE526F6626022645008E47F1 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE526F6526022645008E47F1 /* NoteViewController.swift */; };
 		FE526F6A2602266A008E47F1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE526F692602266A008E47F1 /* SettingsViewController.swift */; };
+		FE526F6D26027707008E47F1 /* NotesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE526F6C26027707008E47F1 /* NotesDataManager.swift */; };
 		FE831EF12602171600CAAC2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE831EF02602171600CAAC2A /* AppDelegate.swift */; };
 		FE831EF52602171600CAAC2A /* NotesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE831EF42602171600CAAC2A /* NotesListViewController.swift */; };
 		FE831EFB2602171600CAAC2A /* NotesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE831EF92602171600CAAC2A /* NotesApp.xcdatamodeld */; };
@@ -25,6 +26,7 @@
 		FE526F62260225BB008E47F1 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		FE526F6526022645008E47F1 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		FE526F692602266A008E47F1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FE526F6C26027707008E47F1 /* NotesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDataManager.swift; sourceTree = "<group>"; };
 		FE831EED2602171600CAAC2A /* NotesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE831EF02602171600CAAC2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE831EF42602171600CAAC2A /* NotesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			children = (
 				FE831EF02602171600CAAC2A /* AppDelegate.swift */,
 				FE526F5C26022590008E47F1 /* MainNavigationController.swift */,
+				FE526F6C26027707008E47F1 /* NotesDataManager.swift */,
 				FE831EF42602171600CAAC2A /* NotesListViewController.swift */,
 				FE526F5F260225AA008E47F1 /* NoteCell.swift */,
 				FE526F6526022645008E47F1 /* NoteViewController.swift */,
@@ -155,6 +158,7 @@
 				FE526F60260225AA008E47F1 /* NoteCell.swift in Sources */,
 				FE526F5D26022590008E47F1 /* MainNavigationController.swift in Sources */,
 				FE831EFB2602171600CAAC2A /* NotesApp.xcdatamodeld in Sources */,
+				FE526F6D26027707008E47F1 /* NotesDataManager.swift in Sources */,
 				FE526F6A2602266A008E47F1 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
