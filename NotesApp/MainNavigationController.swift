@@ -13,7 +13,6 @@ class MainNavigationController: UINavigationController {
         super.viewDidLoad()
 		
 		let rootVC = NotesListViewController()
-		rootVC.title = "My notes"
 		
 		let backButton = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
 		rootVC.navigationItem.backBarButtonItem = backButton
