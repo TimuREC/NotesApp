@@ -40,14 +40,13 @@ class NoteViewController: UIViewController {
 		textView.allowsEditingTextAttributes = true
 		textView.isScrollEnabled = true
 		textView.alwaysBounceVertical = true
-		textView.backgroundColor = .clear
 		return textView
 	}()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		view.backgroundColor = .white
+		view.backgroundColor = ThemeService.activeTheme.background
 		view.addSubview(dateLabel)
 		view.addSubview(textView)
 		addKeyboardObservers()

@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		let rootVC = MainNavigationController()
 		
+		ThemeService.applyTheme()
 		window?.rootViewController = rootVC
 		window?.makeKeyAndVisible()
 		

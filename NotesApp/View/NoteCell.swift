@@ -12,6 +12,7 @@ class NoteCell: UITableViewCell {
 	let titleLabel: UILabel = {
 		let label = UILabel()
 		label.font = UIFont.systemFont(ofSize: 14)
+		label.textColor = ThemeService.activeTheme.textColor
 		return label
 	}()
 	
@@ -25,6 +26,7 @@ class NoteCell: UITableViewCell {
 	
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
+		backgroundColor = .clear
 		setupContent()
 	}
 	
@@ -43,9 +45,12 @@ class NoteCell: UITableViewCell {
 		NSLayoutConstraint.activate([
 			stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
 			stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-			stack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-			stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
+			stack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5)
 		])
+	}
+	
+	override func prepareForReuse() {
+		titleLabel.textColor = ThemeService.activeTheme.textColor
 	}
     
 	func configure(with note: Note) {

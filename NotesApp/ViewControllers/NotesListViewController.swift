@@ -14,6 +14,7 @@ class NotesListViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		tableView.dataSource = notesManager
+		tableView.separatorInset = .zero
 		title = "My Notes"
 		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New",

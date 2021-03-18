@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE05B32C26035780002C96C8 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05B32B26035780002C96C8 /* ThemeView.swift */; };
+		FE05B32F260357DF002C96C8 /* ThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05B32E260357DF002C96C8 /* ThemeService.swift */; };
+		FE05B33226035ADD002C96C8 /* ThemeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05B33126035ADD002C96C8 /* ThemeEnum.swift */; };
 		FE526F5D26022590008E47F1 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE526F5C26022590008E47F1 /* MainNavigationController.swift */; };
 		FE526F60260225AA008E47F1 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE526F5F260225AA008E47F1 /* NoteCell.swift */; };
 		FE526F6626022645008E47F1 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE526F6526022645008E47F1 /* NoteViewController.swift */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE05B32B26035780002C96C8 /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
+		FE05B32E260357DF002C96C8 /* ThemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeService.swift; sourceTree = "<group>"; };
+		FE05B33126035ADD002C96C8 /* ThemeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEnum.swift; sourceTree = "<group>"; };
 		FE526F5C26022590008E47F1 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		FE526F5F260225AA008E47F1 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		FE526F6526022645008E47F1 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				FE831EF92602171600CAAC2A /* NotesApp.xcdatamodeld */,
+				FE05B33126035ADD002C96C8 /* ThemeEnum.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -110,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				FE526F5F260225AA008E47F1 /* NoteCell.swift */,
+				FE05B32B26035780002C96C8 /* ThemeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				FE526F6C26027707008E47F1 /* NotesDataManager.swift */,
+				FE05B32E260357DF002C96C8 /* ThemeService.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -193,12 +202,15 @@
 			files = (
 				FE526F6626022645008E47F1 /* NoteViewController.swift in Sources */,
 				FE831EF52602171600CAAC2A /* NotesListViewController.swift in Sources */,
+				FE05B33226035ADD002C96C8 /* ThemeEnum.swift in Sources */,
 				FEE0167F2602983900C3A795 /* NSAttributedStringTransformer.swift in Sources */,
+				FE05B32F260357DF002C96C8 /* ThemeService.swift in Sources */,
 				FE831EF12602171600CAAC2A /* AppDelegate.swift in Sources */,
 				FE526F60260225AA008E47F1 /* NoteCell.swift in Sources */,
 				FE526F5D26022590008E47F1 /* MainNavigationController.swift in Sources */,
 				FE831EFB2602171600CAAC2A /* NotesApp.xcdatamodeld in Sources */,
 				FE526F6D26027707008E47F1 /* NotesDataManager.swift in Sources */,
+				FE05B32C26035780002C96C8 /* ThemeView.swift in Sources */,
 				FE526F6A2602266A008E47F1 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
