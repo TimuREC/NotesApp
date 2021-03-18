@@ -47,6 +47,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE18E36C2602BCB5007D8A44 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				FE831EF02602171600CAAC2A /* AppDelegate.swift */,
+				FEE0167E2602983900C3A795 /* NSAttributedStringTransformer.swift */,
+				FE831EFC2602171700CAAC2A /* Assets.xcassets */,
+				FE831EFE2602171700CAAC2A /* LaunchScreen.storyboard */,
+				FE831F012602171700CAAC2A /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
 		FE831EE42602171600CAAC2A = {
 			isa = PBXGroup;
 			children = (
@@ -66,20 +78,48 @@
 		FE831EEF2602171600CAAC2A /* NotesApp */ = {
 			isa = PBXGroup;
 			children = (
-				FE831EF02602171600CAAC2A /* AppDelegate.swift */,
-				FE526F5C26022590008E47F1 /* MainNavigationController.swift */,
-				FE526F6C26027707008E47F1 /* NotesDataManager.swift */,
-				FE831EF42602171600CAAC2A /* NotesListViewController.swift */,
-				FE526F5F260225AA008E47F1 /* NoteCell.swift */,
-				FE526F6526022645008E47F1 /* NoteViewController.swift */,
-				FE526F692602266A008E47F1 /* SettingsViewController.swift */,
-				FEE0167E2602983900C3A795 /* NSAttributedStringTransformer.swift */,
-				FE831EFC2602171700CAAC2A /* Assets.xcassets */,
-				FE831EFE2602171700CAAC2A /* LaunchScreen.storyboard */,
-				FE831F012602171700CAAC2A /* Info.plist */,
-				FE831EF92602171600CAAC2A /* NotesApp.xcdatamodeld */,
+				FEE6474826034FE2009919CA /* ViewControllers */,
+				FEE6474A26035018009919CA /* View */,
+				FEE6474C26035020009919CA /* Helpers */,
+				FEE6474726034FCE009919CA /* Model */,
+				FE18E36C2602BCB5007D8A44 /* Supporting files */,
 			);
 			path = NotesApp;
+			sourceTree = "<group>";
+		};
+		FEE6474726034FCE009919CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FE831EF92602171600CAAC2A /* NotesApp.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FEE6474826034FE2009919CA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FE526F5C26022590008E47F1 /* MainNavigationController.swift */,
+				FE831EF42602171600CAAC2A /* NotesListViewController.swift */,
+				FE526F6526022645008E47F1 /* NoteViewController.swift */,
+				FE526F692602266A008E47F1 /* SettingsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FEE6474A26035018009919CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FE526F5F260225AA008E47F1 /* NoteCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FEE6474C26035020009919CA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FE526F6C26027707008E47F1 /* NotesDataManager.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,7 +340,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QZZ5827BGY;
-				INFOPLIST_FILE = NotesApp/Info.plist;
+				INFOPLIST_FILE = "NotesApp/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -319,7 +359,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QZZ5827BGY;
-				INFOPLIST_FILE = NotesApp/Info.plist;
+				INFOPLIST_FILE = "NotesApp/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
