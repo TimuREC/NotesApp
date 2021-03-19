@@ -30,4 +30,13 @@ extension Theme {
 			return .white
 		}
 	}
+	
+	var statusBar: UIStatusBarStyle {
+		switch self {
+		case .light:
+			return .default
+		case .dark:
+			return .lightContent
+		}
+	}
 }

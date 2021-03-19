@@ -22,6 +22,15 @@ class NotesDataManager: NSObject {
 		context = appDelegate?.persistentContainer.viewContext
 		super.init()
 		
+		guard let _ = UserDefaults.standard.value(forKeyPath: "FirstStart") else {
+			let firstNote = Note(context: context)
+			firstNote.title = "Добро пожаловать в NotesApp!"
+			firstNote.text = NSAttributedString(string: "Добро пожаловать в NotesApp!\n\nМы рады приветствовать нашего нового пользователя!\n\nЭто приложение достаточно минималистичное, однако Вы можете создать столько заметок, сколько Вам потребуется, форматировать текст в них по своему усмотрению (для этого нужно выделить интересующий участок и выбрать атрибуты в появившемся контекстном меню), при необходимости - удалите замету свайпом влево, а еще Вы можете выбрать одну из двух тем оформления приложения. Заметки будут отсортированы по времени создания, самые свежие - вверху.\n\nПриятного использования!", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)])
+			firstNote.date = Date()
+			notes.append(firstNote)
+			UserDefaults.standard.set(false, forKey: "FirstStart")
+			return
+		}
 		let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
 		do {
 			if let context = context {

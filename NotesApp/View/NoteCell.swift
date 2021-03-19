@@ -9,16 +9,11 @@ import UIKit
 
 class NoteCell: UITableViewCell {
 
-	let titleLabel: UILabel = {
-		let label = UILabel()
-		label.font = UIFont.systemFont(ofSize: 14)
-		label.textColor = ThemeService.activeTheme.textColor
-		return label
-	}()
+	let titleLabel = UILabel()
 	
 	let dateLabel: UILabel = {
 		let label = UILabel()
-		label.font = UIFont.systemFont(ofSize: 12)
+		label.font = UIFont.systemFont(ofSize: 14)
 		label.textColor = .gray
 		label.textAlignment = .right
 		return label
@@ -35,6 +30,8 @@ class NoteCell: UITableViewCell {
 	}
 	
 	private func setupContent() {
+		titleLabel.textColor = ThemeService.activeTheme.textColor
+		
 		let stack = UIStackView(arrangedSubviews: [titleLabel, dateLabel])
 		stack.distribution = .fill
 		stack.axis = .vertical

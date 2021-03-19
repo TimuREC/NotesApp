@@ -36,6 +36,7 @@ class NoteViewController: UIViewController {
 	
 	private let textView: UITextView = {
 		let textView = UITextView()
+		textView.font = UIFont.systemFont(ofSize: 16)
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		textView.allowsEditingTextAttributes = true
 		textView.isScrollEnabled = true

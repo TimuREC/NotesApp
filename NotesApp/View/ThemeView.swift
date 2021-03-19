@@ -13,7 +13,7 @@ class ThemeView: UIView {
 	
 	var isSelected: Bool {
 		didSet {
-			layer.borderColor = isSelected ? UIColor.darkGray.cgColor : UIColor.gray.cgColor
+			layer.borderColor = isSelected ? #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1).cgColor : UIColor.gray.cgColor
 		}
 	}
 	

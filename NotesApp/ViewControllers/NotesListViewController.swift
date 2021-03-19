@@ -17,10 +17,7 @@ class NotesListViewController: UITableViewController {
 		tableView.separatorInset = .zero
 		title = "My Notes"
 		
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New",
-														   style: .plain,
-														   target: self,
-														   action: #selector(addNewNote))
+		navigationItem.rightBarButtonItem = configureNewNoteButton()
 		
 		tableView.register(NoteCell.self, forCellReuseIdentifier: notesManager.cellReuseIdentifier)
 		tableView.tableFooterView = UIView()
@@ -31,6 +28,25 @@ class NotesListViewController: UITableViewController {
 		tableView.reloadData()
 	}
 	
+	private func configureNewNoteButton() -> UIBarButtonItem {
+		let settingsImage = UIImage(named: "Plus")
+		let button = UIButton(type: .system)
+		button.setImage(settingsImage, for: .normal)
+		button.addTarget(self, action: #selector(addNewNote), for: .touchUpInside)
+
+		let menuBarItem = UIBarButtonItem(customView: button)
+		if let view = menuBarItem.customView {
+			view.translatesAutoresizingMaskIntoConstraints = false
+			NSLayoutConstraint.activate([
+				view.heightAnchor.constraint(equalToConstant: 20),
+				view.widthAnchor.constraint(equalTo: view.heightAnchor)
+			])
+		}
+
+		return menuBarItem
+	}
+	
+	// MARK: - Interactions
 	@objc
 	private func addNewNote() {
 		let targetVC = NoteViewController()
@@ -49,7 +65,7 @@ class NotesListViewController: UITableViewController {
 		return action
 	}
 	
-	//MARK: - TableView delegate methods
+	// MARK: - TableView delegate methods
 	override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 		let remove = removeAction(at: indexPath)
 		return UISwipeActionsConfiguration(actions: [remove])
@@ -66,7 +82,7 @@ class NotesListViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return 45
+		return 55
 	}
 
 }
